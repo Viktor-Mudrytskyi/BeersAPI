@@ -6,11 +6,11 @@ import 'package:beers_app/utilities/failures/server_failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:beers_app/utilities/failures/failure.dart';
 
-class BeersRepository implements IBeersRepository{
+class BeersRepositoryImpl implements IBeersRepository{
 
   final IRemoteDatasource remoteDatasource;
 
-  BeersRepository({required this.remoteDatasource});  
+  BeersRepositoryImpl({required this.remoteDatasource});  
 
   @override
   Future<Either<Failure, List<BeerEntity>>> getBeersByPage(int page) async{
