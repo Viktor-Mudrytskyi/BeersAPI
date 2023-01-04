@@ -18,7 +18,6 @@ class BeersRepositoryImpl implements IBeersRepository{
     try{
       final res=await remoteDatasource.getBeersByPage(page);log('from rep success');
       final entityList=res.map((e) => e.toEntity()).toList();
-      
       return Right(entityList);
     }on ServerException{
       log('from rep fail');

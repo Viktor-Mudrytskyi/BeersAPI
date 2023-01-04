@@ -7,7 +7,7 @@ import 'package:http/http.dart';
 void main(){
   test('test response', ()async{
     final k=RemoteDatasourceImpl(client: Client());
-  final res=await k.getBeersByPage(1);
+  final res=await k.getBeersByPage(15);
   res.map(((e) => e.toEntity())).toList();
 
   });

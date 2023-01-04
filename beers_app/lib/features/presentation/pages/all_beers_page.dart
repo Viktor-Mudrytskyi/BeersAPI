@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:beers_app/features/domain/entities/beer_entity.dart';
 import 'package:beers_app/features/presentation/widgets/beer_list_card.dart';
 import 'package:beers_app/features/presentation/bloc/beers_bloc.dart';
@@ -36,61 +35,58 @@ class _AllBeersPageState extends State<AllBeersPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Builder(
-        builder: (context) {
-          final state = context.watch<BeersBloc>().state;
-          return state.when(
-            loading: () => const Center(child: CircularProgressIndicator()),
-            loaded: (loadedList) {
-              if (loadedList.isEmpty) {
-                isLoading=false;
-              }
-              beersList.addAll(loadedList);
-              return CustomScrollView(
-                controller: scrollController,
-                slivers: [
-                  SliverAppBar(
-                    expandedHeight: 150,
-                    flexibleSpace: FlexibleSpaceBar(
-                      background: Image.asset(
-                        'assets/beer_background.jpg',
-                        fit: BoxFit.cover,
+    return Builder(
+      builder: (context) {
+        final state = context.watch<BeersBloc>().state;
+        return state.when(
+          loading: () => const Center(child: CircularProgressIndicator()),
+          loaded: (loadedList) {
+            if (loadedList.isEmpty) {
+              isLoading = false;
+            }
+            beersList.addAll(loadedList);
+            return CustomScrollView(
+              controller: scrollController,
+              slivers: [
+                SliverAppBar(
+                  flexibleSpace: FlexibleSpaceBar(
+                    background: Image.asset(
+                      'assets/beer_background.jpg',
+                      fit: BoxFit.cover,
+                    ),
+                    title: const Text('The best beer assortment'),
+                    collapseMode: CollapseMode.parallax,
+                    centerTitle: true,
+                    expandedTitleScale: 1.5,
+                  ),
+                ),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    childCount: beersList.length,
+                    (context, index) {
+                      return BeerListCard(beer: beersList[index]);
+                    },
+                  ),
+                ),
+                (isLoading)
+                    ? const SliverToBoxAdapter(
+                        child: Center(
+                            child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: CircularProgressIndicator(
+                            strokeWidth: 5,
+                          ),
+                        )),
+                      )
+                    : const SliverToBoxAdapter(
+                        child: SizedBox(),
                       ),
-                      title: const Text('The best beer assortment'),
-                      collapseMode: CollapseMode.parallax,
-                      centerTitle: true,
-                      expandedTitleScale: 1.5,
-                    ),
-                  ),
-                  SliverList(
-                    delegate: SliverChildBuilderDelegate(
-                      childCount: beersList.length,
-                      (context, index) {
-                        return BeerListCard(beer: beersList[index]);
-                      },
-                    ),
-                  ),
-                  (isLoading)
-                      ? const SliverToBoxAdapter(
-                          child: Center(
-                              child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: CircularProgressIndicator(
-                              strokeWidth: 5,
-                            ),
-                          )),
-                        )
-                      : const SliverToBoxAdapter(
-                          child: SizedBox(),
-                        ),
-                ],
-              );
-            },
-            errorLoading: ((mes) => Center(child: Text(mes))),
-          );
-        },
-      ),
+              ],
+            );
+          },
+          errorLoading: ((mes) => Center(child: Text(mes))),
+        );
+      },
     );
   }
 }

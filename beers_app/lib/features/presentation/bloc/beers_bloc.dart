@@ -8,17 +8,14 @@ part 'beers_bloc.freezed.dart';
 part 'beers_event.dart';
 part 'beers_state.dart';
 
+///Bloc responsible for managing AllBeersPage States
 class BeersBloc extends Bloc<BeersEvent, BeersState> {
   final GetBeersByPage getBeersByPage;
   BeersBloc({required this.getBeersByPage})
       : super(const BeersState.loading()) {
     on<BeersStartLoadingEvent>((event, emit) async {
       final result = await getBeersByPage.fetchByPage(event.page);
-
       result.fold((l) {
-        if(event.page>13){
-          return emit(const BeersState.loaded(loadedList: []));
-        }
         return emit(const BeersState.errorLoading(mes: 'Server Failure'));
       }, (r) => emit(BeersState.loaded(loadedList: r)));
       log('state loaded');

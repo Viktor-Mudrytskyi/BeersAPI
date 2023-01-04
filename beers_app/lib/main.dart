@@ -5,7 +5,7 @@ import 'package:beers_app/locator_service.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main()async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await init();
   runApp(const BeersApp());
@@ -46,11 +46,11 @@ class BeersApp extends StatelessWidget {
           selectedItemColor: Colors.amber,
         ),
         splashColor: Colors.transparent,
-        textTheme: GoogleFonts.latoTextTheme(
+        textTheme: GoogleFonts.inconsolataTextTheme(
           const TextTheme(
             headline1: TextStyle(
               color: Colors.black,
-              fontSize: 23,
+              fontSize: 30,
             ),
             bodyText1: TextStyle(
               color: Colors.black,
@@ -58,17 +58,20 @@ class BeersApp extends StatelessWidget {
             ),
             bodyText2: TextStyle(
               color: Colors.black,
-              fontSize: 18,
+              fontSize: 25,
             ),
           ),
         ),
         colorScheme: Theme.of(context)
             .colorScheme
             .copyWith(secondary: Colors.amber, primary: Colors.amber),
-        primaryTextTheme: const TextTheme(
-          headline6: TextStyle(
-            color: Color.fromARGB(31, 93, 93, 93),
-          ),
+        primaryTextTheme: TextTheme(
+          headline6: GoogleFonts.inconsolata(
+              textStyle: const TextStyle(
+            color: Colors.black,
+            fontSize: 24,
+            fontWeight: FontWeight.w800,
+          )),
         ),
       ),
     );

@@ -4,6 +4,7 @@ import 'package:beers_app/features/domain/entities/beer_entity.dart';
 import 'package:beers_app/locator_service.dart';
 import 'package:flutter/material.dart';
 
+///Provider that manages saved(favorited) beers
 class FavouriteBeersProvider extends ChangeNotifier{
    List<BeerEntity> favouriteBeersList=[];
    FavouriteBeersProvider() {
@@ -18,6 +19,14 @@ class FavouriteBeersProvider extends ChangeNotifier{
       log('in provider');
       favouriteBeersList.add(beer);
     }
+    notifyListeners();
+  }
+  void remFav(BeerEntity beer){
+      final index=favouriteBeersList.indexOf(beer);
+      box.deleteAt(index);
+      log('in provider');
+      favouriteBeersList.removeAt(index);
+    
     notifyListeners();
   }
 }

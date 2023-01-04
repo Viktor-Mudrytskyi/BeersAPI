@@ -3,6 +3,7 @@ import 'package:beers_app/features/domain/repositories/beers_repository.dart';
 import 'package:beers_app/utilities/failures/failure.dart';
 import 'package:dartz/dartz.dart';
 
+///Use case that fetches BeersByPage
 class GetBeersByPage{
   final IBeersRepository repository;
 

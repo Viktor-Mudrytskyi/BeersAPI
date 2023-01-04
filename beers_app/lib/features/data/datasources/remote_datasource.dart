@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:beers_app/features/data/models/beer_model.dart';
 import 'package:beers_app/utilities/exception/server_exception.dart';
 import 'package:http/http.dart'as http;
@@ -21,9 +20,9 @@ class RemoteDatasourceImpl implements IRemoteDatasource{
     try {
       final response=await client.get(Uri.parse('https://api.punkapi.com/v2/beers?page=$page'));
       if(response.statusCode==200){
-        final list=jsonDecode(response.body);
+        final List<dynamic> list=jsonDecode(response.body);
         log('success from remote datasource');
-        return List.generate(25, ((index) => BeerModel.fromJson(list[index])));
+        return List.generate(list.length, ((index) => BeerModel.fromJson(list[index])));
       }else{
         throw ServerException();
       }

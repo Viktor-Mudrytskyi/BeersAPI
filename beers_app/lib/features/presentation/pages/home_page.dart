@@ -1,12 +1,14 @@
 import 'package:beers_app/features/presentation/bloc/beers_bloc.dart';
 import 'package:beers_app/features/presentation/pages/all_beers_page.dart';
 import 'package:beers_app/features/presentation/pages/favourite_beers_page.dart';
+import 'package:beers_app/features/presentation/pages/not_implemented_yet_page.dart';
 import 'package:beers_app/locator_service.dart';
 import 'package:beers_app/utilities/favourite_beers_provider/favourite_beers_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
+///Main class responsible for control Bottom Navigation Bar tabs
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -22,6 +24,7 @@ class _HomePageState extends State<HomePage> {
         ..add(const BeersEvent.startLoading(page: 1)),
     ),
     const FavouriteBeersPage(),
+    const NotYetImplementedPage(),
   ];
   int current = 0;
   @override

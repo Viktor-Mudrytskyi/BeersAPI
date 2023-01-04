@@ -18,7 +18,7 @@ class FavouriteBeersPage extends StatelessWidget {
                   'assets/beer_background.jpg',
                   fit: BoxFit.cover,
                 ),
-                title: const Text('The best beer assortment'),
+                title: const Text('Favourite beers'),
                 collapseMode: CollapseMode.parallax,
                 centerTitle: true,
                 expandedTitleScale: 1.5,
