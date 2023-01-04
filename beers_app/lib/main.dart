@@ -4,16 +4,15 @@ import 'package:beers_app/features/presentation/pages/home_page.dart';
 import 'package:beers_app/locator_service.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 void main()async {
-  init();
+  WidgetsFlutterBinding.ensureInitialized();
+  await init();
   runApp(const BeersApp());
 }
 
 class BeersApp extends StatelessWidget {
   const BeersApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,6 +26,8 @@ class BeersApp extends StatelessWidget {
             final beer = settings.arguments as BeerEntity;
             return MaterialPageRoute(
                 builder: (context) => DetailedViewPage(beer: beer));
+          case '/favourite_page':
+            return MaterialPageRoute(builder: (context) => const HomePage());
           default:
             return null;
         }

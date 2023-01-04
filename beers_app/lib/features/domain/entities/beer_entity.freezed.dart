@@ -16,11 +16,17 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$BeerEntity {
+  @HiveField(1)
   String get name => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get image_url => throw _privateConstructorUsedError;
+  @HiveField(3)
   double get abv => throw _privateConstructorUsedError;
+  @HiveField(4)
   String get description => throw _privateConstructorUsedError;
+  @HiveField(5)
   List<String> get food_pairing => throw _privateConstructorUsedError;
+  @HiveField(6)
   IngredientsEntity get ingredients => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -35,12 +41,12 @@ abstract class $BeerEntityCopyWith<$Res> {
       _$BeerEntityCopyWithImpl<$Res, BeerEntity>;
   @useResult
   $Res call(
-      {String name,
-      String image_url,
-      double abv,
-      String description,
-      List<String> food_pairing,
-      IngredientsEntity ingredients});
+      {@HiveField(1) String name,
+      @HiveField(2) String image_url,
+      @HiveField(3) double abv,
+      @HiveField(4) String description,
+      @HiveField(5) List<String> food_pairing,
+      @HiveField(6) IngredientsEntity ingredients});
 
   $IngredientsEntityCopyWith<$Res> get ingredients;
 }
@@ -111,12 +117,12 @@ abstract class _$$_BeerEntityCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String name,
-      String image_url,
-      double abv,
-      String description,
-      List<String> food_pairing,
-      IngredientsEntity ingredients});
+      {@HiveField(1) String name,
+      @HiveField(2) String image_url,
+      @HiveField(3) double abv,
+      @HiveField(4) String description,
+      @HiveField(5) List<String> food_pairing,
+      @HiveField(6) IngredientsEntity ingredients});
 
   @override
   $IngredientsEntityCopyWith<$Res> get ingredients;
@@ -171,27 +177,33 @@ class __$$_BeerEntityCopyWithImpl<$Res>
 
 /// @nodoc
 
+@HiveType(typeId: 0)
 class _$_BeerEntity extends _BeerEntity {
   const _$_BeerEntity(
-      {required this.name,
-      required this.image_url,
-      required this.abv,
-      required this.description,
-      required final List<String> food_pairing,
-      required this.ingredients})
+      {@HiveField(1) required this.name,
+      @HiveField(2) required this.image_url,
+      @HiveField(3) required this.abv,
+      @HiveField(4) required this.description,
+      @HiveField(5) required final List<String> food_pairing,
+      @HiveField(6) required this.ingredients})
       : _food_pairing = food_pairing,
         super._();
 
   @override
+  @HiveField(1)
   final String name;
   @override
+  @HiveField(2)
   final String image_url;
   @override
+  @HiveField(3)
   final double abv;
   @override
+  @HiveField(4)
   final String description;
   final List<String> _food_pairing;
   @override
+  @HiveField(5)
   List<String> get food_pairing {
     if (_food_pairing is EqualUnmodifiableListView) return _food_pairing;
     // ignore: implicit_dynamic_type
@@ -199,6 +211,7 @@ class _$_BeerEntity extends _BeerEntity {
   }
 
   @override
+  @HiveField(6)
   final IngredientsEntity ingredients;
 
   @override
@@ -242,25 +255,32 @@ class _$_BeerEntity extends _BeerEntity {
 
 abstract class _BeerEntity extends BeerEntity {
   const factory _BeerEntity(
-      {required final String name,
-      required final String image_url,
-      required final double abv,
-      required final String description,
-      required final List<String> food_pairing,
-      required final IngredientsEntity ingredients}) = _$_BeerEntity;
+          {@HiveField(1) required final String name,
+          @HiveField(2) required final String image_url,
+          @HiveField(3) required final double abv,
+          @HiveField(4) required final String description,
+          @HiveField(5) required final List<String> food_pairing,
+          @HiveField(6) required final IngredientsEntity ingredients}) =
+      _$_BeerEntity;
   const _BeerEntity._() : super._();
 
   @override
+  @HiveField(1)
   String get name;
   @override
+  @HiveField(2)
   String get image_url;
   @override
+  @HiveField(3)
   double get abv;
   @override
+  @HiveField(4)
   String get description;
   @override
+  @HiveField(5)
   List<String> get food_pairing;
   @override
+  @HiveField(6)
   IngredientsEntity get ingredients;
   @override
   @JsonKey(ignore: true)
@@ -270,7 +290,9 @@ abstract class _BeerEntity extends BeerEntity {
 
 /// @nodoc
 mixin _$IngredientsEntity {
+  @HiveField(1)
   List<MaltEntity> get malt => throw _privateConstructorUsedError;
+  @HiveField(2)
   List<HopsEntity> get hops => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -284,7 +306,9 @@ abstract class $IngredientsEntityCopyWith<$Res> {
           IngredientsEntity value, $Res Function(IngredientsEntity) then) =
       _$IngredientsEntityCopyWithImpl<$Res, IngredientsEntity>;
   @useResult
-  $Res call({List<MaltEntity> malt, List<HopsEntity> hops});
+  $Res call(
+      {@HiveField(1) List<MaltEntity> malt,
+      @HiveField(2) List<HopsEntity> hops});
 }
 
 /// @nodoc
@@ -324,7 +348,9 @@ abstract class _$$_IngredientsEntityCopyWith<$Res>
       __$$_IngredientsEntityCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<MaltEntity> malt, List<HopsEntity> hops});
+  $Res call(
+      {@HiveField(1) List<MaltEntity> malt,
+      @HiveField(2) List<HopsEntity> hops});
 }
 
 /// @nodoc
@@ -356,16 +382,18 @@ class __$$_IngredientsEntityCopyWithImpl<$Res>
 
 /// @nodoc
 
+@HiveType(typeId: 1)
 class _$_IngredientsEntity extends _IngredientsEntity {
   const _$_IngredientsEntity(
-      {required final List<MaltEntity> malt,
-      required final List<HopsEntity> hops})
+      {@HiveField(1) required final List<MaltEntity> malt,
+      @HiveField(2) required final List<HopsEntity> hops})
       : _malt = malt,
         _hops = hops,
         super._();
 
   final List<MaltEntity> _malt;
   @override
+  @HiveField(1)
   List<MaltEntity> get malt {
     if (_malt is EqualUnmodifiableListView) return _malt;
     // ignore: implicit_dynamic_type
@@ -374,6 +402,7 @@ class _$_IngredientsEntity extends _IngredientsEntity {
 
   final List<HopsEntity> _hops;
   @override
+  @HiveField(2)
   List<HopsEntity> get hops {
     if (_hops is EqualUnmodifiableListView) return _hops;
     // ignore: implicit_dynamic_type
@@ -410,13 +439,16 @@ class _$_IngredientsEntity extends _IngredientsEntity {
 
 abstract class _IngredientsEntity extends IngredientsEntity {
   const factory _IngredientsEntity(
-      {required final List<MaltEntity> malt,
-      required final List<HopsEntity> hops}) = _$_IngredientsEntity;
+          {@HiveField(1) required final List<MaltEntity> malt,
+          @HiveField(2) required final List<HopsEntity> hops}) =
+      _$_IngredientsEntity;
   const _IngredientsEntity._() : super._();
 
   @override
+  @HiveField(1)
   List<MaltEntity> get malt;
   @override
+  @HiveField(2)
   List<HopsEntity> get hops;
   @override
   @JsonKey(ignore: true)
@@ -426,7 +458,9 @@ abstract class _IngredientsEntity extends IngredientsEntity {
 
 /// @nodoc
 mixin _$MaltEntity {
+  @HiveField(1)
   String get name => throw _privateConstructorUsedError;
+  @HiveField(2)
   AmountEntity get amount => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -440,7 +474,7 @@ abstract class $MaltEntityCopyWith<$Res> {
           MaltEntity value, $Res Function(MaltEntity) then) =
       _$MaltEntityCopyWithImpl<$Res, MaltEntity>;
   @useResult
-  $Res call({String name, AmountEntity amount});
+  $Res call({@HiveField(1) String name, @HiveField(2) AmountEntity amount});
 
   $AmountEntityCopyWith<$Res> get amount;
 }
@@ -490,7 +524,7 @@ abstract class _$$_MaltEntityCopyWith<$Res>
       __$$_MaltEntityCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, AmountEntity amount});
+  $Res call({@HiveField(1) String name, @HiveField(2) AmountEntity amount});
 
   @override
   $AmountEntityCopyWith<$Res> get amount;
@@ -525,12 +559,17 @@ class __$$_MaltEntityCopyWithImpl<$Res>
 
 /// @nodoc
 
+@HiveType(typeId: 2)
 class _$_MaltEntity extends _MaltEntity {
-  const _$_MaltEntity({required this.name, required this.amount}) : super._();
+  const _$_MaltEntity(
+      {@HiveField(1) required this.name, @HiveField(2) required this.amount})
+      : super._();
 
   @override
+  @HiveField(1)
   final String name;
   @override
+  @HiveField(2)
   final AmountEntity amount;
 
   @override
@@ -559,13 +598,15 @@ class _$_MaltEntity extends _MaltEntity {
 
 abstract class _MaltEntity extends MaltEntity {
   const factory _MaltEntity(
-      {required final String name,
-      required final AmountEntity amount}) = _$_MaltEntity;
+      {@HiveField(1) required final String name,
+      @HiveField(2) required final AmountEntity amount}) = _$_MaltEntity;
   const _MaltEntity._() : super._();
 
   @override
+  @HiveField(1)
   String get name;
   @override
+  @HiveField(2)
   AmountEntity get amount;
   @override
   @JsonKey(ignore: true)
@@ -575,9 +616,13 @@ abstract class _MaltEntity extends MaltEntity {
 
 /// @nodoc
 mixin _$HopsEntity {
+  @HiveField(1)
   String get name => throw _privateConstructorUsedError;
+  @HiveField(2)
   AmountEntity get amount => throw _privateConstructorUsedError;
+  @HiveField(3)
   String get add => throw _privateConstructorUsedError;
+  @HiveField(4)
   String get attribute => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -591,7 +636,11 @@ abstract class $HopsEntityCopyWith<$Res> {
           HopsEntity value, $Res Function(HopsEntity) then) =
       _$HopsEntityCopyWithImpl<$Res, HopsEntity>;
   @useResult
-  $Res call({String name, AmountEntity amount, String add, String attribute});
+  $Res call(
+      {@HiveField(1) String name,
+      @HiveField(2) AmountEntity amount,
+      @HiveField(3) String add,
+      @HiveField(4) String attribute});
 
   $AmountEntityCopyWith<$Res> get amount;
 }
@@ -651,7 +700,11 @@ abstract class _$$_HopsEntityCopyWith<$Res>
       __$$_HopsEntityCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, AmountEntity amount, String add, String attribute});
+  $Res call(
+      {@HiveField(1) String name,
+      @HiveField(2) AmountEntity amount,
+      @HiveField(3) String add,
+      @HiveField(4) String attribute});
 
   @override
   $AmountEntityCopyWith<$Res> get amount;
@@ -696,21 +749,26 @@ class __$$_HopsEntityCopyWithImpl<$Res>
 
 /// @nodoc
 
+@HiveType(typeId: 3)
 class _$_HopsEntity extends _HopsEntity {
   const _$_HopsEntity(
-      {required this.name,
-      required this.amount,
-      required this.add,
-      required this.attribute})
+      {@HiveField(1) required this.name,
+      @HiveField(2) required this.amount,
+      @HiveField(3) required this.add,
+      @HiveField(4) required this.attribute})
       : super._();
 
   @override
+  @HiveField(1)
   final String name;
   @override
+  @HiveField(2)
   final AmountEntity amount;
   @override
+  @HiveField(3)
   final String add;
   @override
+  @HiveField(4)
   final String attribute;
 
   @override
@@ -742,19 +800,23 @@ class _$_HopsEntity extends _HopsEntity {
 
 abstract class _HopsEntity extends HopsEntity {
   const factory _HopsEntity(
-      {required final String name,
-      required final AmountEntity amount,
-      required final String add,
-      required final String attribute}) = _$_HopsEntity;
+      {@HiveField(1) required final String name,
+      @HiveField(2) required final AmountEntity amount,
+      @HiveField(3) required final String add,
+      @HiveField(4) required final String attribute}) = _$_HopsEntity;
   const _HopsEntity._() : super._();
 
   @override
+  @HiveField(1)
   String get name;
   @override
+  @HiveField(2)
   AmountEntity get amount;
   @override
+  @HiveField(3)
   String get add;
   @override
+  @HiveField(4)
   String get attribute;
   @override
   @JsonKey(ignore: true)
@@ -764,7 +826,9 @@ abstract class _HopsEntity extends HopsEntity {
 
 /// @nodoc
 mixin _$AmountEntity {
+  @HiveField(1)
   double get value => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get unit => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -778,7 +842,7 @@ abstract class $AmountEntityCopyWith<$Res> {
           AmountEntity value, $Res Function(AmountEntity) then) =
       _$AmountEntityCopyWithImpl<$Res, AmountEntity>;
   @useResult
-  $Res call({double value, String unit});
+  $Res call({@HiveField(1) double value, @HiveField(2) String unit});
 }
 
 /// @nodoc
@@ -818,7 +882,7 @@ abstract class _$$_AmountEntityCopyWith<$Res>
       __$$_AmountEntityCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double value, String unit});
+  $Res call({@HiveField(1) double value, @HiveField(2) String unit});
 }
 
 /// @nodoc
@@ -850,12 +914,17 @@ class __$$_AmountEntityCopyWithImpl<$Res>
 
 /// @nodoc
 
+@HiveType(typeId: 4)
 class _$_AmountEntity extends _AmountEntity {
-  const _$_AmountEntity({required this.value, required this.unit}) : super._();
+  const _$_AmountEntity(
+      {@HiveField(1) required this.value, @HiveField(2) required this.unit})
+      : super._();
 
   @override
+  @HiveField(1)
   final double value;
   @override
+  @HiveField(2)
   final String unit;
 
   @override
@@ -884,13 +953,15 @@ class _$_AmountEntity extends _AmountEntity {
 
 abstract class _AmountEntity extends AmountEntity {
   const factory _AmountEntity(
-      {required final double value,
-      required final String unit}) = _$_AmountEntity;
+      {@HiveField(1) required final double value,
+      @HiveField(2) required final String unit}) = _$_AmountEntity;
   const _AmountEntity._() : super._();
 
   @override
+  @HiveField(1)
   double get value;
   @override
+  @HiveField(2)
   String get unit;
   @override
   @JsonKey(ignore: true)

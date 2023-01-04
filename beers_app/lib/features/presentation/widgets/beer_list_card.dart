@@ -1,5 +1,7 @@
 import 'package:beers_app/features/domain/entities/beer_entity.dart';
+import 'package:beers_app/utilities/favourite_beers_provider/favourite_beers_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class BeerListCard extends StatelessWidget {
   const BeerListCard({super.key, required this.beer});
@@ -14,6 +16,8 @@ class BeerListCard extends StatelessWidget {
       onLongPress: () {
         ScaffoldMessenger.of(context)
             .showSnackBar(const SnackBar(content: Text('You favourited this')));
+        context.read<FavouriteBeersProvider>().addFav(beer);
+        
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
