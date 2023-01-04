@@ -127,6 +127,6 @@ class AmountModel with _$AmountModel {
 
   AmountEntity toEntity() => AmountEntity(
         unit: unit ?? 'no data',
-        value: 0,
+        value: value??0,
       );
 }

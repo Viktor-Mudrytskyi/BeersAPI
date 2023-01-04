@@ -16,19 +16,20 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$BeersEvent {
+  int get page => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() startLoading,
+    required TResult Function(int page) startLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? startLoading,
+    TResult? Function(int page)? startLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? startLoading,
+    TResult Function(int page)? startLoading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +49,10 @@ mixin _$BeersEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $BeersEventCopyWith<BeersEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -55,6 +60,8 @@ abstract class $BeersEventCopyWith<$Res> {
   factory $BeersEventCopyWith(
           BeersEvent value, $Res Function(BeersEvent) then) =
       _$BeersEventCopyWithImpl<$Res, BeersEvent>;
+  @useResult
+  $Res call({int page});
 }
 
 /// @nodoc
@@ -66,13 +73,30 @@ class _$BeersEventCopyWithImpl<$Res, $Val extends BeersEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? page = null,
+  }) {
+    return _then(_value.copyWith(
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$BeersStartLoadingEventCopyWith<$Res> {
+abstract class _$$BeersStartLoadingEventCopyWith<$Res>
+    implements $BeersEventCopyWith<$Res> {
   factory _$$BeersStartLoadingEventCopyWith(_$BeersStartLoadingEvent value,
           $Res Function(_$BeersStartLoadingEvent) then) =
       __$$BeersStartLoadingEventCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int page});
 }
 
 /// @nodoc
@@ -82,51 +106,76 @@ class __$$BeersStartLoadingEventCopyWithImpl<$Res>
   __$$BeersStartLoadingEventCopyWithImpl(_$BeersStartLoadingEvent _value,
       $Res Function(_$BeersStartLoadingEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? page = null,
+  }) {
+    return _then(_$BeersStartLoadingEvent(
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$BeersStartLoadingEvent implements BeersStartLoadingEvent {
-  const _$BeersStartLoadingEvent();
+  const _$BeersStartLoadingEvent({required this.page});
+
+  @override
+  final int page;
 
   @override
   String toString() {
-    return 'BeersEvent.startLoading()';
+    return 'BeersEvent.startLoading(page: $page)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$BeersStartLoadingEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$BeersStartLoadingEvent &&
+            (identical(other.page, page) || other.page == page));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, page);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$BeersStartLoadingEventCopyWith<_$BeersStartLoadingEvent> get copyWith =>
+      __$$BeersStartLoadingEventCopyWithImpl<_$BeersStartLoadingEvent>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() startLoading,
+    required TResult Function(int page) startLoading,
   }) {
-    return startLoading();
+    return startLoading(page);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? startLoading,
+    TResult? Function(int page)? startLoading,
   }) {
-    return startLoading?.call();
+    return startLoading?.call(page);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? startLoading,
+    TResult Function(int page)? startLoading,
     required TResult orElse(),
   }) {
     if (startLoading != null) {
-      return startLoading();
+      return startLoading(page);
     }
     return orElse();
   }
@@ -161,7 +210,15 @@ class _$BeersStartLoadingEvent implements BeersStartLoadingEvent {
 }
 
 abstract class BeersStartLoadingEvent implements BeersEvent {
-  const factory BeersStartLoadingEvent() = _$BeersStartLoadingEvent;
+  const factory BeersStartLoadingEvent({required final int page}) =
+      _$BeersStartLoadingEvent;
+
+  @override
+  int get page;
+  @override
+  @JsonKey(ignore: true)
+  _$$BeersStartLoadingEventCopyWith<_$BeersStartLoadingEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

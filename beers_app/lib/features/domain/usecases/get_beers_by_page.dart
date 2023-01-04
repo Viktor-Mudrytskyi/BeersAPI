@@ -6,7 +6,7 @@ import 'package:dartz/dartz.dart';
 class GetBeersByPage{
   final IBeersRepository repository;
 
-  const GetBeersByPage(this.repository);
+  const GetBeersByPage({required this.repository});
   ///Fetches beers by page via repository
   Future<Either<Failure,List<BeerEntity>>> fetchByPage(int page)async{
     return await repository.getBeersByPage(page);

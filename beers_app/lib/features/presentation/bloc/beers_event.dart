@@ -2,7 +2,7 @@ part of 'beers_bloc.dart';
 
 @freezed
  class BeersEvent with _$BeersEvent {
-  const factory BeersEvent.startLoading()=BeersStartLoadingEvent;
+  const factory BeersEvent.startLoading({required int page})=BeersStartLoadingEvent;
 }
 
 

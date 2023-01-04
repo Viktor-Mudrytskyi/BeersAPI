@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:beers_app/features/data/datasources/remote_datasource.dart';
 import 'package:beers_app/features/domain/entities/beer_entity.dart';
 import 'package:beers_app/features/domain/repositories/beers_repository.dart';
@@ -15,10 +16,12 @@ class BeersRepositoryImpl implements IBeersRepository{
   @override
   Future<Either<Failure, List<BeerEntity>>> getBeersByPage(int page) async{
     try{
-      final res=await remoteDatasource.getBeersByPage(page);
+      final res=await remoteDatasource.getBeersByPage(page);log('from rep success');
       final entityList=res.map((e) => e.toEntity()).toList();
+      
       return Right(entityList);
     }on ServerException{
+      log('from rep fail');
       return Left(ServerFailure());
     }
   }

@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'beer_entity.freezed.dart';
 
 @freezed
-class BeerEntity with _$BeerEntity {
+class BeerEntity  with _$BeerEntity {
   const BeerEntity._();
   const factory BeerEntity({
     required String name,
@@ -47,7 +47,7 @@ class HopsEntity with _$HopsEntity{
       required String add,
       required String attribute,
     }
-  )=_HopsEntity;
+  )=_HopsEntity; 
 }
 
 @freezed
