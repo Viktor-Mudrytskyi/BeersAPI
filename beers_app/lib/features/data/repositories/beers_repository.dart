@@ -7,22 +7,21 @@ import 'package:beers_app/utilities/failures/server_failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:beers_app/utilities/failures/failure.dart';
 
-class BeersRepositoryImpl implements IBeersRepository{
-
+class BeersRepositoryImpl implements IBeersRepository {
   final IRemoteDatasource remoteDatasource;
 
-  BeersRepositoryImpl({required this.remoteDatasource});  
+  BeersRepositoryImpl({required this.remoteDatasource});
 
   @override
-  Future<Either<Failure, List<BeerEntity>>> getBeersByPage(int page) async{
-    try{
-      final res=await remoteDatasource.getBeersByPage(page);log('from rep success');
-      final entityList=res.map((e) => e.toEntity()).toList();
+  Future<Either<Failure, List<BeerEntity>>> getBeersByPage(int page) async {
+    try {
+      final res = await remoteDatasource.getBeersByPage(page);
+      log('from rep success');
+      final entityList = res.map((e) => e.toEntity()).toList();
       return Right(entityList);
-    }on ServerException{
+    } on ServerException {
       log('from rep fail');
       return Left(ServerFailure());
     }
   }
-
 }

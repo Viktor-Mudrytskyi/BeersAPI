@@ -9,7 +9,9 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http/http.dart';
 import 'package:path_provider/path_provider.dart';
 
+///Global varible, [GetIt] instance, responsible for classes initialization
 final sl=GetIt.instance;
+///Global variable responsible for Hive storage access (Favourite beers)
 late final Box box;
 Future<void> init()async {
   sl.registerFactory(() => BeersBloc(getBeersByPage: sl<GetBeersByPage>()));
@@ -28,5 +30,5 @@ Future<void> init()async {
   Hive.registerAdapter(MaltEntityAdapter());
   Hive.registerAdapter(HopsEntityAdapter());
   Hive.registerAdapter(AmountEntityAdapter());
-   box=await Hive.openBox('Favourite beers');
+  box=await Hive.openBox('Favourite beers');
 }

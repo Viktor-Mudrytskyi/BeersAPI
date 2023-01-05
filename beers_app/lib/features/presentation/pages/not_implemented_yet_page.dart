@@ -6,7 +6,10 @@ class NotYetImplementedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Nothing here yet...',style: Theme.of(context).textTheme.headline1,),
+      child: Text(
+        'Nothing here yet...',
+        style: Theme.of(context).textTheme.headline1,
+      ),
     );
   }
 }

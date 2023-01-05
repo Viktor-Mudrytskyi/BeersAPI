@@ -1,14 +1,14 @@
+import 'package:beers_app/app_state/providers/favourite_beers_provider.dart';
 import 'package:beers_app/features/presentation/bloc/beers_bloc.dart';
 import 'package:beers_app/features/presentation/pages/all_beers_page.dart';
 import 'package:beers_app/features/presentation/pages/favourite_beers_page.dart';
 import 'package:beers_app/features/presentation/pages/not_implemented_yet_page.dart';
 import 'package:beers_app/locator_service.dart';
-import 'package:beers_app/utilities/favourite_beers_provider/favourite_beers_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
-///Main class responsible for control Bottom Navigation Bar tabs
+///Main class responsible for control over Bottom Navigation Bar tabs
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -27,6 +27,7 @@ class _HomePageState extends State<HomePage> {
     const NotYetImplementedPage(),
   ];
   int current = 0;
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -45,13 +46,17 @@ class _HomePageState extends State<HomePage> {
           }),
           items: const [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined), label: 'Home'),
+              icon: Icon(Icons.home_outlined),
+              label: 'Home',
+            ),
             BottomNavigationBarItem(
               icon: Icon(Icons.favorite_outline),
               label: 'Favourite',
             ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.balance_outlined), label: 'Uknown'),
+              icon: Icon(Icons.balance_outlined),
+              label: 'Uknown',
+            ),
           ],
         ),
       ),

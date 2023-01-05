@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_interpolation_to_compose_strings
-
 import 'package:beers_app/features/domain/entities/beer_entity.dart';
 import 'package:flutter/material.dart';
 
+///Provides detailed view of the provided beer
 class DetailedViewPage extends StatelessWidget {
   const DetailedViewPage({super.key, required this.beer});
   final BeerEntity beer;
@@ -53,7 +53,7 @@ class DetailedViewPage extends StatelessWidget {
                   Center(
                     child: SizedBox(
                       height: 400,
-                      width: 300,
+                      width: 300, 
                       child: Image.network(
                         beer.image_url,
                         loadingBuilder: (context, child, loadingProgress) {
@@ -74,23 +74,20 @@ class DetailedViewPage extends StatelessWidget {
                     height: 20.0,
                   ),
                   Text(
-                    'Name: ${beer.name}',
+                    'Name: ${beer.name}\n',
                     style: Theme.of(context).textTheme.headline1,
                   ),
                   Text(
-                    'ABV: ${beer.abv}',
+                    'ABV: ${beer.abv}\n',
                     style: Theme.of(context).textTheme.headline1,
                   ),
                   const SizedBox(
                     height: 10.0,
                   ),
-                  Text('Description: ${beer.description}'),
-                  const SizedBox(
-                    height: 10.0,
-                  ),
+                  Text('Description: ${beer.description}\n'),
                   Text('Malts:\n${matsToString(beer.ingredients.malt)}'),
                   Text('Hops:\n${hopsToString(beer.ingredients.hops)}'),
-                  Text('Food Pairings: ${beer.food_pairing}'),
+                  Text('Food Pairings: ${foodToString(beer.food_pairing)}'),
                 ],
               ),
             ),
@@ -105,6 +102,11 @@ class DetailedViewPage extends StatelessWidget {
     for (var e in list) {
       res = res + e.name + ': ${e.amount.value} ' + e.amount.unit + '\n';
     }
+    return res;
+  }
+
+  String foodToString(List<String> list) {
+    String res = list.toString().replaceAll('[', '').replaceAll(']', '');
     return res;
   }
 

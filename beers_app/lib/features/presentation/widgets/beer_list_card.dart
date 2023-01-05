@@ -1,5 +1,5 @@
+import 'package:beers_app/app_state/providers/favourite_beers_provider.dart';
 import 'package:beers_app/features/domain/entities/beer_entity.dart';
-import 'package:beers_app/utilities/favourite_beers_provider/favourite_beers_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,22 +14,22 @@ class BeerListCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Card(
         elevation: 15,
-        child: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [
-              Colors.yellow,
-              Colors.orange,
-              Colors.purple,
-            ], begin: Alignment.topRight, end: Alignment.bottomLeft),
-          ),
-          child: GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(
-                context,
-                '/detailed_view_page',
-                arguments: beer,
-              );
-            },
+        child: GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              '/detailed_view_page',
+              arguments: beer,
+            );
+          },
+          child: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(colors: [
+                Colors.yellow,
+                Colors.orange,
+                Colors.purple,
+              ], begin: Alignment.topRight, end: Alignment.bottomLeft),
+            ),
             child: Row(
               children: [
                 Stack(

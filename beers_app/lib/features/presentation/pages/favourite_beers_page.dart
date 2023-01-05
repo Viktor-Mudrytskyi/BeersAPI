@@ -1,8 +1,9 @@
+import 'package:beers_app/app_state/providers/favourite_beers_provider.dart';
 import 'package:beers_app/features/presentation/widgets/all_beers_page_widgets.dart';
-import 'package:beers_app/utilities/favourite_beers_provider/favourite_beers_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+///Provides list of favourited beers
 class FavouriteBeersPage extends StatelessWidget {
   const FavouriteBeersPage({super.key});
 
@@ -28,9 +29,7 @@ class FavouriteBeersPage extends StatelessWidget {
               delegate: SliverChildBuilderDelegate(
                 childCount: value.favouriteBeersList.length,
                 (context, index) {
-                  return BeerListCard(
-                    beer: value.favouriteBeersList[index],
-                  );
+                  return BeerListCard(beer: value.favouriteBeersList[index]);
                 },
               ),
             ),

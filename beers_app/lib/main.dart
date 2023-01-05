@@ -29,7 +29,7 @@ class BeersApp extends StatelessWidget {
           case '/favourite_page':
             return MaterialPageRoute(builder: (context) => const HomePage());
           default:
-            return null;
+            throw Exception('Unknown route');
         }
       },
       theme: ThemeData(
